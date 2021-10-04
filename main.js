@@ -13,7 +13,7 @@ for (let a = 0; a < height; a++) {
 
 var positions = [[0, 0]];
 var inputs = [];
-var direction = "s";
+var direction = "d";
 
 positions.forEach(pos => { tableBody.children[pos[0]].children[pos[1]].classList.add("snake"); });
 generateApple();
