@@ -81,12 +81,14 @@ var interval = setInterval(() => {
     if (newPos[0] < 0 || newPos[0] >= height || newPos[1] < 0 || newPos[1] >= width) {
         gameOver();
         clearInterval(interval);
+        return;
     }
 
     let element = tableBody.children[newPos[0]].children[newPos[1]];
     if (element.classList.contains("snake")) {
         gameOver();
         clearInterval(interval);
+        return;
     }
     if (element.classList.contains("apple")) {
         element.classList.remove("apple");
