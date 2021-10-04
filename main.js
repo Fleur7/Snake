@@ -1,6 +1,6 @@
 const width = 25, height = 25;
-var table = document.getElementById("table");
-var scoreDiv = document.getElementById("score");
+var table = document.querySelector("table");
+var scoreDiv = document.querySelector("div#score");
 var tableBody = document.querySelector("table tbody");
 
 for (let a = 0; a < height; a++) {
