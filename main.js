@@ -50,7 +50,7 @@ function gameOver() {
     table.style.borderColor = "#FF0000";
 }
 
-document.body.onkeydown = function (event) {
+document.body.onkeydown = event => {
     if (!["w", "d", "s", "a"].includes(event.key)) {
         return;
     }
