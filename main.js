@@ -15,9 +15,13 @@ var positions = [[0, 0]];
 var inputs = [];
 var direction = "d";
 
-positions.forEach(pos => { tableBody.children[pos[0]].children[pos[1]].classList.add("snake"); });
+positions.forEach(pos => { getTableElement(pos).classList.add("snake"); });
 generateApple();
 updateScore();
+
+function getTableElement(pos) {
+    return tableBody.children[pos[0]].children[pos[1]];
+}
 
 function updateScore() {
     scoreDiv.innerText = `Score: ${positions.length}`;
@@ -25,18 +29,17 @@ function updateScore() {
 
 function generateApple() {
     let pos = [Math.floor(Math.random() * height), Math.floor(Math.random() * width)];
-    while (tableBody.children[pos[0]].children[pos[1]].classList.contains("snake")) {
+    while (getTableElement(pos).classList.contains("snake")) {
         pos = [Math.floor(Math.random() * height), Math.floor(Math.random() * width)];
     }
-    tableBody.children[pos[0]].children[pos[1]].classList.add("apple");
+    getTableElement(pos).classList.add("apple");
 }
 
 function moveTo(pos, a = false) {
     positions.push(pos);
-    tableBody.children[pos[0]].children[pos[1]].classList.add("snake");
+    getTableElement(pos).classList.add("snake");
     if (!a) {
-        let oldPos = positions.shift();
-        tableBody.children[oldPos[0]].children[oldPos[1]].classList.remove("snake");
+        getTableElement(positions.shift()).classList.remove("snake");
 
     }
 }
@@ -57,7 +60,7 @@ document.body.onkeydown = event => {
     if (event.key != inputs[inputs.length - 1] && event.key != direction) {
         inputs.push(event.key);
     }
-}
+};
 
 var interval = setInterval(() => {
     direction = inputs.length ? inputs.shift() : direction;
@@ -84,7 +87,7 @@ var interval = setInterval(() => {
         return;
     }
 
-    let element = tableBody.children[newPos[0]].children[newPos[1]];
+    let element = getTableElement(newPos);
     if (element.classList.contains("snake")) {
         gameOver();
         clearInterval(interval);
