@@ -15,12 +15,17 @@ td {
     border: 1px solid #111111;
 }
 
-td.snake {
+div.inner {
+    width: 25px;
+    height: 25px;
+}
+
+div.snake {
     background-color: #00FF00;
     border-radius: 25%;
 }
 
-td.apple {
+div.apple {
     background-color: #FF0000;
     border-radius: 50%;
 }

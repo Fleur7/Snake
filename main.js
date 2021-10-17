@@ -6,7 +6,10 @@ var tableBody = document.querySelector("table tbody");
 for (let a = 0; a < height; a++) {
     let row = table.insertRow();
     for (let b = 0; b < width; b++) {
-        row.insertCell();
+        let cell = row.insertCell();
+        let inner = document.createElement("div");
+        inner.classList.add("inner");
+        cell.appendChild(inner);
     }
 }
 
@@ -20,7 +23,7 @@ generateApple();
 updateScore();
 
 function getTableElement(pos) {
-    return tableBody.children[pos[0]].children[pos[1]];
+    return tableBody.children[pos[0]].children[pos[1]].children[0];
 }
 
 function updateScore() {
