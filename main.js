@@ -32,7 +32,7 @@ function updateScore() {
 
 function generateApple() {
     let pos = [Math.floor(Math.random() * height), Math.floor(Math.random() * width)];
-    while (getTableElement(pos).classList.contains("snake")) {
+    while (getTableElement(pos).classList.contains("snake") || getTableElement(pos).classList.contains("apple")) {
         pos = [Math.floor(Math.random() * height), Math.floor(Math.random() * width)];
     }
     getTableElement(pos).classList.add("apple");
