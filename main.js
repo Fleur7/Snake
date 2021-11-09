@@ -57,7 +57,7 @@ class Game {
     }
 
     loop() {
-        this.direction = this.inputs ? this.inputs.shift() : this.direction;
+        this.direction = this.inputs.length ? this.inputs.shift() : this.direction;
         console.log(this.positions);
         let currentPos = this.positions[this.positions.length - 1];
         let newPos;
